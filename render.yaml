@@ -6,7 +6,7 @@ services:
     name: claimresolve-backend
     runtime: python
     region: oregon
-    plan: standard
+    plan: free # Change to "starter" if you want always-on without sleeping
     buildCommand: "cd backend && pip install -r requirements.txt"
     startCommand: "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     healthCheckPath: /health
@@ -52,6 +52,6 @@ services:
 # ------------------------------------------------------------------------------
 databases:
   - name: claimresolve-postgres
-    plan: standard
+    plan: free # Change to "basic-256mb" or "starter" if you want permanent non-expiring storage
     region: oregon
     postgresMajorVersion: 16
